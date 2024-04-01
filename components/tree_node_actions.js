@@ -6,20 +6,27 @@ const TreeNodeActions = function ({ node, setNewNode, setEditNode }) {
     <div style={{ display: "flex", gap: "10px" }}>
       {isDirectory(node) && (
         <>
-          <button onClick={() => setNewNode({ name: "", id: uuidv4() })}>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setNewNode({ name: "", id: uuidv4() });
+            }}
+          >
             Add file
           </button>
           <button
-            onClick={() =>
-              setNewNode({ name: "", id: uuidv4(), subDirectories: [] })
-            }
+            onClick={(e) => {
+              e.stopPropagation();
+              setNewNode({ name: "", id: uuidv4(), subDirectories: [] });
+            }}
           >
             Add directory
           </button>
         </>
       )}
       <button
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           setEditNode(node);
         }}
       >

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import DirectoryContext from "@/context/DirectoryContext";
 
 const AddNodeForm = function ({ node, newNode, setNewNode }) {
-  const { addSubDirectoryNode } = useContext(DirectoryContext);
+  const { addNode } = useContext(DirectoryContext);
   return (
     <div className="sub-directory" style={{ display: "flex", gap: 10 }}>
       <input
@@ -11,7 +11,7 @@ const AddNodeForm = function ({ node, newNode, setNewNode }) {
       />
       <button
         onClick={() => {
-          addSubDirectoryNode(node.id, newNode);
+          addNode(node.id, newNode);
           setNewNode(undefined);
         }}
       >

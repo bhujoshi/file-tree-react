@@ -31,7 +31,7 @@ const dummyData = {
 export default function Home() {
   const [directoriesTree, setDirectoriesTree] = useState(dummyData);
   const [foldNodes, setFoldNodes] = useState(new Set());
-  const addSubDirectoryNode = (id, newNode) => {
+  const addNode = (id, newNode) => {
     const findIdAndAdd = (treeNode) => {
       if (treeNode.id === id) {
         treeNode.subDirectories = [newNode, ...treeNode.subDirectories];
@@ -69,7 +69,7 @@ export default function Home() {
     <main style={{ padding: "20px" }}>
       <DirectoryContext.Provider
         value={{
-          addSubDirectoryNode: addSubDirectoryNode,
+          addNode: addNode,
           updateNode: updateNode,
           setFoldNodes: setFoldNodes,
           foldNodes: foldNodes,
